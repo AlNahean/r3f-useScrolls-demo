@@ -27,14 +27,16 @@ import {
 } from "@theatre/r3f";
 import { getProject, val } from "@theatre/core";
 
+import flyThroughState from "./state.json";
+
 // import {
 //   SheetProvider,
 //   PerspectiveCamera,
 //   useCurrentSheet,
 // } from "@theatre/r3f";
 
-studio.extend(extension);
-studio.initialize();
+// studio.extend(extension);
+// studio.initialize();
 
 function Box(props) {
   // This reference will give us direct access to the mesh
@@ -149,7 +151,10 @@ const BillBOardGroup = () => {
   );
 };
 const Test = () => {
-  const sheet = getProject("Fly Through").sheet("Scene");
+  // const sheet = getProject("Fly Through").sheet("Scene");
+  const sheet = getProject("Fly Through", { state: flyThroughState }).sheet(
+    "Scene"
+  );
   return (
     <div
       style={{
