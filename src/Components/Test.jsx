@@ -252,16 +252,22 @@ function Scene() {
 
       <Ground />
 
-      {/* <Suspense>
-        <Gltf
-          src="/models/corridoor.gltf"
-          receiveShadow
-          castShadow
-          rotation={[0, 0, 0]}
-          position={[0, -1, 0]}
-          scale={4}
-        />
-      </Suspense> */}
+      {[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15].map((item) => {
+        return (
+          <>
+            <Suspense>
+              <Gltf
+                src="/models/corridoor.gltf"
+                receiveShadow
+                castShadow
+                rotation={[0, 0, 0]}
+                position={[0, -1, -8 * item]}
+                scale={2}
+              />
+            </Suspense>
+          </>
+        );
+      })}
 
       <PerspectiveCamera
         theatreKey="Camera"
