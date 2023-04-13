@@ -99,6 +99,30 @@ const BillBoardsData = [
     id: 9,
     distance: 6,
   },
+  {
+    id: 10,
+    distance: 6,
+  },
+  {
+    id: 11,
+    distance: 0,
+  },
+  {
+    id: 12,
+    distance: 2,
+  },
+  {
+    id: 13,
+    distance: 4,
+  },
+  {
+    id: 14,
+    distance: 6,
+  },
+  {
+    id: 15,
+    distance: 6,
+  },
 ];
 
 const Billboard = ({ id }) => {
@@ -106,7 +130,7 @@ const Billboard = ({ id }) => {
   return (
     <>
       <group
-        position={[id % 2 ? -8 : 8, 0, -id * 8]}
+        position={[id % 2 ? -3.5 : 3.5, 0, -id * 8]}
         rotation={[0, id % 2 ? 1 : -1, 0]}
         // id % 2 ? -1 : 1
       >
@@ -151,6 +175,7 @@ const BillBOardGroup = () => {
   );
 };
 const Test = () => {
+  const [changing, setIsChanging] = useState(false);
   // const sheet = getProject("Fly Through").sheet("Scene");
   const sheet = getProject("Fly Through", { state: flyThroughState }).sheet(
     "Scene"
@@ -161,13 +186,13 @@ const Test = () => {
         height: "100vh",
         maxWidth: "100vw",
         width: "100vw",
-        backgroundColor: "red",
+        backgroundColor: "black",
       }}
     >
       <Canvas gl={{ preserveDrawingBuffer: true }}>
         {/* <color attach="background" color="red" /> */}
 
-        <ScrollControls pages={5} damping={0.1}>
+        <ScrollControls pages={5} infinite={true} damping={0}>
           <SheetProvider sheet={sheet}>
             <Scene />
           </SheetProvider>
@@ -178,19 +203,35 @@ const Test = () => {
 };
 
 function Scene() {
+  const isChanging = useRef();
   const sheet = useCurrentSheet();
   const scroll = useScroll();
   scroll.curve(1 / 3, 1 / 3);
   // our callback will run on every animation frame
   useFrame(() => {
     console.log(scroll, sheet, scroll.el.scrollTop);
-    if (scroll.offset > 0.9) {
-      // scroll.scroll.current = 0;
-      scroll.el.scrollTop = 0;
-    }
+
     // the length of our sequence
     const sequenceLength = val(sheet.sequence.pointer.length);
     // update the "position" of the playhead in the sequence, as a fraction of its whole length
+
+    if (scroll.offset > 0.9) {
+      // scroll.scroll.current = 0;
+      scroll.el.scrollTop = 0;
+      // scroll.el.scrollTo({
+      //   top: 0,
+      //   // behavior: "instant",
+      //   behavior: "instant",
+      // });
+      // // isChanging.current = true;
+      // setTimeout(() => {
+      //   // isChanging.current = false;
+      // }, 240);
+    }
+    // if (isChanging.current) {
+    //   sheet.sequence.position = 0;
+    // } else {
+    // }
     sheet.sequence.position = scroll.offset * sequenceLength;
   });
 
