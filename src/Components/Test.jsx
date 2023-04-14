@@ -331,7 +331,7 @@ function Scene() {
   const isChanging = useRef();
   const sheet = useCurrentSheet();
   const scroll = useScroll();
-  scroll.curve(1 / 3, 1 / 3);
+  // scroll.curve(1 / 3, 1 / 3);
   // our callback will run on every animation frame
   useFrame(() => {
     // console.log(scroll, sheet, scroll.el.scrollTop);
