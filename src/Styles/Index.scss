@@ -1,0 +1,11 @@
+* {
+  padding: 0px;
+  margin: 0px;
+
+  scroll-behavior: unset;
+}
+
+@import "./_rootVariables.scss";
+// @import url(../../../node_modules/bootstrap/dist/css/bootstrap.css);
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./_commonCustom.scss";

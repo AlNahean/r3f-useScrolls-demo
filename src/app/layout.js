@@ -3,7 +3,9 @@ import Head from "next/head";
 
 // import "bootstrap/dist/css/bootstrap.css";
 
-import "./global.scss";
+// import "./global.scss";
+
+import "../Styles/Index.scss";
 
 export const metadata = {
   title: "Create Next App",

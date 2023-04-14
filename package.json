@@ -11,10 +11,13 @@
   "dependencies": {
     "@react-three/drei": "^9.64.0",
     "@react-three/fiber": "^8.12.0",
+    "@react-three/postprocessing": "^2.7.1",
+    "@studio-freight/lenis": "^1.0.6",
     "@theatre/core": "^0.6.0",
     "@theatre/r3f": "^0.6.0",
     "@theatre/studio": "^0.6.0",
     "bootstrap": "^5.2.3",
+    "lamina": "^1.1.23",
     "next": "13.3.0",
     "react": "18.2.0",
     "react-dom": "18.2.0",
